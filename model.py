@@ -1,7 +1,6 @@
 """
 Support Vector Machine from Scratch
 
-Assembled from your step-by-step solutions.
 """
 
 import numpy as np
@@ -13,7 +12,6 @@ def standardize_features(x):
     mean = np.mean(x, axis=0)
     std = np.std(x, axis=0)
 
-    # evito divisione per zero
     std[std == 0] = 1
 
     return (x - mean) / std
