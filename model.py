@@ -79,19 +79,16 @@ def compute_gradients(x, y, params, reg_lambda):
     # TODO: compute the gradient of the SVM objective wrt params['w'] and params['b'].
 
     scores = compute_scores(x, params)
-    ms = 1 - y * scores
+    margins = 1 - y * scores
 
-    dw = 0
-    db = 0
+    active = margins >= 0 # maschera per m >= 0
 
-    for i,m in enumerate(ms):
-        if m >= 0:
-            dw += (y[i] * x[i])
-            db += y[i]
-    dw = -(dw/len(x)) + 2 * reg_lambda * params["w"]
-    db = -(db/len(y))
+    dw = -np.sum(y[active, None] * x[active], axis=0) / len(x)
+    dw += 2 * reg_lambda * params["w"]
 
-    return {"dw":dw, "db":db}
+    db = -np.sum(y[active]) / len(y)
+
+    return {"dw": dw, "db": db}
 
 # Step 8 - apply_update (not yet solved)
 # TODO: implement
