@@ -1,6 +1,6 @@
 # Support Vector Machine from Scratch
 
-Build a linear Support Vector Machine end-to-end using only basic array operations, implementing the hinge loss, regularized objective, and gradient-based training loop. By the end you'll have a working binary classifier you can train, predict with, and evaluate on real data.
+I built a linear Support Vector Machine from scratch using only basic array operations. I implemented the hinge loss, regularized objective function, and gradient-based optimization loop
 
 ## How to run
 
@@ -23,5 +23,3 @@ python scaffold.py
 - [x] **11.** accuracy_score
 
 ---
-
-Built on Deep-ML.
